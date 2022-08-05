@@ -7,7 +7,7 @@ class HttpRequest
 {
     private $url;
     private $method;
-    private $settings;
+    private $param;
 
     public function __construct()
     {
@@ -23,8 +23,8 @@ class HttpRequest
         return $this->method;
     }
 
-    public function getSettings()
+    public function getParam()
     {
-        return $this->settings;
+        return $this->param;
     }
 }
