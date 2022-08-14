@@ -15,13 +15,6 @@
 {
 	"path" : "/Login",
 	"controller" : "Home",
-	"action" : "Login",
-	"method" : "GET",
-	"param" : []
-},
-{
-	"path" : "/Login",
-	"controller" : "Home",
 	"action" : "Authenticate",
 	"method" : "POST",
 	"param" : []
