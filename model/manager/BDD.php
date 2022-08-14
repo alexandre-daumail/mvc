@@ -4,7 +4,7 @@
 		private $_bdd;
         private static $_instance;
 
-        private static function getInstance($datasource)
+        public static function getInstance($datasource)
         {
             if(empty(self::$_instance))
             {

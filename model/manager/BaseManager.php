@@ -4,9 +4,11 @@
 		private $_table;
 		private $_object;
 		
-		public function __construct()
+		public function __construct($table,$object,$datasource)
 		{
-			
+			$this->_table = $table;
+			$this->_object = $object;
+			$this->_bdd = BDD::getInstance($datasource);
 		}
 		
 		public function getById($id)
