@@ -47,7 +47,7 @@
 			}
 			else
 			{
-				throw new PropertyNotFoundException();	
+				throw new PropertyNotFoundException($this->_object,"id");	
 			}
 		}
 	}
