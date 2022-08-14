@@ -30,8 +30,8 @@ class HttpRequest
     {
         return $this->_param;
     }
-    
-    public function setRoute($route) 
+
+    public function setRoute($route)
     {
         $this->_route = $route;
     }
@@ -45,16 +45,23 @@ class HttpRequest
                 break;
 
             case 'DELETE':
-                $this->_param[] = preg_match("#" . $this->_route . "#", $this->_url);
+
+                if (preg_match("#" . $this->_route->path . "#", $this->_url, $matches)) {
+                    for ($i = 1; $i < count($matches) - 1; $i++) {
+                        $this->_param[] = $matches[$i];
+                    }
+                }
                 break;
 
             case 'POST':
                 # code...
                 break;
             case 'PUT':
-                
-                foreach ($this->route->getParam() as $param) {
-                    $this->_param[] = $param;
+
+                foreach ($this->_route->getParam() as $param) {
+                    if (isset($_POST[$param])) {
+                        $this->_param[] = $_POST[$param];
+                    }
                 }
                 break;
         }
