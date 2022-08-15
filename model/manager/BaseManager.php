@@ -3,7 +3,7 @@
 	{
 		private $_table;
 		private $_object;
-        protected $_bdd;
+		protected $_bdd;
 		
 		public function __construct($table,$object,$datasource)
 		{
@@ -28,9 +28,15 @@
 			return $req->fetchAll();
 		}
 		
-		public function create($obj)
+		public function create($obj,$param)
 		{
 			
+			$paramNumber = count($param);
+			$valueArray = array_fill(1,$param_number,"?");
+			$valueString = implode($valueArray,", ");
+			$sql = "INSERT INTO " . $this->_table . "(" . implode($param,", ") . ") VALUES(" . $valueString . ")";
+			$req = $_bdd->prepare($sql);
+			$req->execute($param);
 		}
 		
 		public function update($obj)
