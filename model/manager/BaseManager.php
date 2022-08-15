@@ -36,12 +36,46 @@
 			$valueString = implode($valueArray,", ");
 			$sql = "INSERT INTO " . $this->_table . "(" . implode($param,", ") . ") VALUES(" . $valueString . ")";
 			$req = $_bdd->prepare($sql);
-			$req->execute($param);
+			$boundParam = array();
+			foreach($param as $paramName)
+			{
+				if(property_exists($obj,$paramName))
+				{
+					$boundParam[$paramName] = $obj->$paramName;	
+				}
+				else
+				{
+					throw new PropertyNotFoundException($this->_object,$paramName);	
+				}
+			}
+			$req->execute($boundParam);
 		}
 		
-		public function update($obj)
+		public function update($obj,$param)
 		{
+			$sql = "UPDATE " . $this->_table . " SET ";
+			foreach($param as $paramName)
+			{
+				$sql = $sql . $paramName . " = ?, ";
+			}
+			$sql = $sql . " WHERE id = ? ";
+			$req = $_bdd->prepare($sql);
 			
+			$param[] = 'id';
+			$boundParam = array();
+			foreach($param as $paramName)
+			{
+				if(property_exists($obj,$paramName))
+				{
+					$boundParam[$paramName] = $obj->$paramName;	
+				}
+				else
+				{
+					throw new PropertyNotFoundException($this->_object,$paramName);	
+				}
+			}
+			
+			$req->execute($boudParam);
 		}
 		
 		public function delete($obj)
@@ -53,7 +87,7 @@
 			}
 			else
 			{
-				throw new PropertyNotFoundException($this->_object,"id");	
+				throw new PropertyNotFoundException($obj,"id");	
 			}
 		}
 	}
