@@ -7,7 +7,7 @@
     ],
     "database": {
         "name": "Ma base de données",
-        "dbname": "database",
+        "dbname": "cinetech",
         "host": "localhost",
         "user": "root",
         "password": ""

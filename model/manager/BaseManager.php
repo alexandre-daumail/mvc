@@ -32,9 +32,9 @@
 		{
 			
 			$paramNumber = count($param);
-			$valueArray = array_fill(1,$param_number,"?");
-			$valueString = implode($valueArray,", ");
-			$sql = "INSERT INTO " . $this->_table . "(" . implode($param,", ") . ") VALUES(" . $valueString . ")";
+			$valueArray = array_fill(1,$paramNumber,"?");
+			$valueString = implode(", ", $valueArray);
+			$sql = "INSERT INTO " . $this->_table . "(" . implode(", ", $param) . ") VALUES(" . $valueString . ")";
 			$req = $_bdd->prepare($sql);
 			$boundParam = array();
 			foreach($param as $paramName)
@@ -75,7 +75,7 @@
 				}
 			}
 			
-			$req->execute($boudParam);
+			$req->execute($boundParam);
 		}
 		
 		public function delete($obj)
