@@ -21,5 +21,5 @@ try
 	$httpRequest->setRoute($router->findRoute($httpRequest));
 } 
 catch (Exception $e) {
-	echo "Une erreur s'est produite";
+	echo $e->getMessage();
 }
