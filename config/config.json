@@ -7,7 +7,7 @@
     ],
     "database": {
         "name": "Ma base de données",
-        "dbname": "cinetech",
+        "dbname": "mvc",
         "host": "localhost",
         "user": "root",
         "password": ""
