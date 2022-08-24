@@ -21,9 +21,9 @@
 			{
 				ob_start();
 				extract($this->_param);
-				include("View/" . $filename . ".php");
+				include("view/" . $filename . ".php");
 				$content = ob_get_clean();
-				include("View/layout.php");
+				include("view/layout.php");
 			}
 			else
 			{
