@@ -1,16 +1,18 @@
 [{
-    "path": "/",
-    "controller": "Home",
-    "action": "Home",
-    "method": "GET",
-    "param" : []
+	"path" : "/",
+	"controller" : "Home",
+	"action" : "Home",
+	"method" : "GET",
+	"param" : [],
+	"manager": []
 },
 {
-    "path": "/login",
-    "controller": "Home",
-    "action": "Login",
-    "method": "GET",
-    "param" : []
+	"path" : "/Login",
+	"controller" : "Home",
+	"action" : "Login",
+	"method" : "GET",
+	"param" : [],
+	"manager": []
 },
 {
 	"path" : "/Login",
@@ -18,8 +20,10 @@
 	"action" : "Authenticate",
 	"method" : "POST",
 	"param" : [
-        "login",
+		"login",
 		"password"
-    ]
-}
-]
+	],
+	"manager": [
+		"User"
+	]
+}]
