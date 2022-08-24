@@ -3,10 +3,16 @@
 	{
 		private $_httpRequest;
 		private $_param;
+		private $_config;
 		
-		public function __construct($httpRequest)
+		public function __construct($httpRequest,$config)
 		{
 			$this->_httpRequest = $httpRequest;
+			$this->_config = $httpRequest;
+			$this->_param = array();
+			$this->addParam("httprequest",$this->_httpRequest);
+			$this->addParam("config",$this->_config);
+			$this->bindManager();
 		}
 		
 		protected function view($filename)
@@ -27,9 +33,9 @@
 		
 		public function bindManager()
 		{
-			foreach($this->_httpRequest->getRoute()->getManager() as $manager)
+			foreach($this->_httpRequest->getRoute()->manager as $manager)
 			{
-				$this->$manager = new $manager;
+				$this->$manager = new $manager($this->_config->database);
 			}
 		}
 		
