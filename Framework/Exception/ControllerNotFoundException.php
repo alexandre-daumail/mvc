@@ -1,5 +1,5 @@
 <?php
-class ActionNotFoundException extends Exception
+class ControllerNotFoundException extends Exception
 {
     public function __construct($message = "Aucun contrôleur n'a été trouvée")
     {
