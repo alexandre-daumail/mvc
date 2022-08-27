@@ -1,15 +1,16 @@
 {
-    "autoloadFolder": [
-        "framework",
-        "controller",
-        "model",
-        "framework/exception"
-    ],
-    "database": {
-        "name": "Ma base de données",
-        "dbname": "mvc",
-        "host": "localhost",
-        "user": "root",
-        "password": ""
-    }
+	"autoloadFolder": [
+		"framework",
+		"controller",
+		"model",
+		"framework/exception"
+	],
+	"database":  {
+            "name": "Ma base de données",
+            "dbname": "database",
+            "host": "localhost",
+            "user": "root",
+            "password": ""
+    },
+	"basepath" : "/mvc"
 }
