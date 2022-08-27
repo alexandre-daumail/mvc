@@ -14,7 +14,7 @@
 			$this->addParam("httprequest",$this->_httpRequest);
 			$this->addParam("config",$this->_config);
 			$this->bindManager();
-			$this->FileManager = new FileManager();
+			$this->_FileManager = new FileManager();
 		}
 		
 		protected function view($filename)	
