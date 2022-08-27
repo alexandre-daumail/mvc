@@ -48,9 +48,27 @@
 			return $this->_manager;
 		}
 		
-		public function run($httpRequest)
+		public function run($httpRequest,$config)
 		{
-			$controller = new $this->_controller();
-			$controller->{$this->_action}($httpRequest->getParam());
+			$controller = null;
+			$controllerName = $this->_controller . "Controller";
+            if(class_exists($controllerName))
+            {
+				
+                $controller = new $controllerName($httpRequest,$config);
+                if(method_exists($controller, $this->_action))
+                {
+                    $controller->{$this->_action}(...$httpRequest->getParam());
+                }
+                else
+                {
+                    throw new ActionNotFoundException();
+                }
+            }
+            else
+            {
+                throw new ControllerNotFoundException();
+            }
+			
 		}
 	}
