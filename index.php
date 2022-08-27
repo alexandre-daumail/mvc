@@ -22,5 +22,8 @@
 	}
 	catch(Exception $e)
 	{
-        echo "Une erreur s'est produite";
+        $httpRequest = new HttpRequest("/Error","GET");
+        $router = new Router();
+        $httpRequest->setRoute($router->findRoute($httpRequest));
+        $httpRequest->run($config);
 	}
