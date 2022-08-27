@@ -48,9 +48,9 @@
 			return $this->_manager;
 		}
 		
-		public function run()
+		public function run($httpRequest)
 		{
 			$controller = new $this->_controller();
-			$controller->$this->_action();
+			$controller->{$this->_action}($httpRequest->getParam());
 		}
 	}
