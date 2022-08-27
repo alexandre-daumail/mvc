@@ -8,6 +8,6 @@
 		
 		public function Authenticate($login,$password)
 		{
-			
+			var_dump($login,$password);
 		}
 	}
