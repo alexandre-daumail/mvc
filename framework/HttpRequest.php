@@ -55,4 +55,9 @@
 		{
 			return $this->_route;	
 		}
+		
+		public function getParam()
+		{
+			return $this->_param;	
+		}
 	}
