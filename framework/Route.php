@@ -47,4 +47,10 @@
 		{
 			return $this->_manager;
 		}
+		
+		public function run()
+		{
+			$controller = new $this->_controller();
+			$controller->$this->_action();
+		}
 	}
