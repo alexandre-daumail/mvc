@@ -52,12 +52,17 @@
 		}
 		
 		public function getRoute()
-		{
-			return $this->_route;	
-		}
+        {
+            return $this->_route;
+        }
 		
 		public function getParam()
 		{
 			return $this->_param;	
-		}
+        }
+		
+		public function run($config)
+        {
+            $this->_route->run($this,$config);
+        }
 	}
