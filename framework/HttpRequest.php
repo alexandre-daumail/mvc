@@ -57,8 +57,8 @@
 					}
 			}
         }
-        
-		public function getRoute()
+		
+        public function getRoute()
         {
             return $this->_route;
         }
@@ -71,5 +71,10 @@
 		public function run($config)
         {
             $this->_route->run($this,$config);
+        }
+
+        public function addParam($value)
+        {
+            $this->_param[] = $value;
         }
 	}
