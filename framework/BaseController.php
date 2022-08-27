@@ -17,13 +17,13 @@
 		
 		protected function view($filename)
 		{
-			if(file_exists('View/' . $filename . '.php'))
+			if(file_exists("View/" . $this->_httprequest->getRoute()->getController() . "/" . $filename . ".php"))
 			{
 				ob_start();
 				extract($this->_param);
-				include("view/" . $filename . ".php");
+				include("View/" . $this->_httprequest->getRoute()->getController() . "/" . $filename . ".php");
 				$content = ob_get_clean();
-				include("view/layout.php");
+				include("View/layout.php");
 			}
 			else
 			{
