@@ -18,7 +18,7 @@
 		$httpRequest = new HttpRequest();
         $router = new Router();
         $httpRequest->setRoute($router->findRoute($httpRequest));
-        $httpRequest->getRoute()->run();
+        $httpRequest->run($config);
 	}
 	catch(Exception $e)
 	{
