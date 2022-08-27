@@ -17,8 +17,16 @@
 			$this->FileManager = new FileManager();
 		}
 		
-		protected function view($filename)
+		protected function view($filename)	
 		{
+			if(file_exists("View/" . $this->_httprequest->getRoute()->getController() . "/css/" . $filename . ".css"))
+			{
+				$this->addCss("View/" . $this->_httprequest->getRoute()->getController() . "/css/" . $filename . ".css");
+			}
+			if(file_exists("View/" . $this->_httprequest->getRoute()->getController() . "/js/" . $filename . ".js"))
+			{
+				$this->addJs("View/" . $this->_httprequest->getRoute()->getController() . "/js/" . $filename . ".js");
+			}
 			if(file_exists("View/" . $this->_httprequest->getRoute()->getController() . "/" . $filename . ".php"))
 			{
 				ob_start();
@@ -44,5 +52,15 @@
 		public function addParam($name,$value)
 		{
 			$this->_param[$name] = $value;
+		}
+		
+		public function addCss($file)
+		{
+			$this->_fileManager->addCss($file);
+		}
+		
+		public function addJs($file)
+		{
+			$this->_fileManager->addJs($file);
 		}
 	}
