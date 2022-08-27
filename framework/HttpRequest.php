@@ -6,10 +6,11 @@
 		private $_param;
 		private $_route;
 		
-		public function __construct()
+		public function __construct($url = null, $method = null)
 		{
-			$this->_url = $_SERVER['REQUEST_URI'];
-			$this->_method = $_SERVER['REQUEST_METHOD'];
+			$this->_url = (is_null($url))?$_SERVER['REQUEST_URI']:$url;
+			$this->_method = (is_null($method))?$_SERVER['REQUEST_METHOD']:$method;
+			$this->_param = array();
 		}
 		
 		public function getUrl()
@@ -40,27 +41,33 @@
 				case "DELETE":
 					foreach($this->_route->getParam() as $param)
 					{
-						$this->_param[] = $param;
+						if(isset($_GET[$param]))
+						{
+							$this->_param[] = $_GET[$param];
+						}
 					}
 				case "POST":
 				case "PUT":
 					foreach($this->_route->getParam() as $param)
 					{
-						$this->_param[] = $param;
+						if(isset($_POST[$param]))
+						{
+							$this->_param[] = $_POST[$param];
+						}
 					}
 			}
-		}
-		
+        }
+        
 		public function getRoute()
         {
             return $this->_route;
         }
 		
-		public function getParam()
+        public function getParam()
 		{
 			return $this->_param;	
         }
-		
+        
 		public function run($config)
         {
             $this->_route->run($this,$config);
