@@ -1,5 +1,5 @@
 <?php
-	$configFile = file_get_contents("Config/config.json");
+	$configFile = file_get_contents("config/config.json");
 	$config = json_decode($configFile);
 
 	spl_autoload_register(function($class) use($config)
@@ -22,7 +22,7 @@
 	}
 	catch(Exception $e)
 	{
-        $httpRequest = new HttpRequest("/Error","GET");
+        $httpRequest = new HttpRequest("/error","GET");
         $router = new Router();
 		$httpRequest->setRoute($router->findRoute($httpRequest,$config->basepath));
 		$httpRequest->addParam($e);
