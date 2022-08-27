@@ -1,9 +1,9 @@
 {
 	"autoloadFolder": [
-		"framework",
-		"controller",
-		"model",
-		"framework/exception"
+		"Framework",
+		"Controller",
+		"Model",
+		"Framework/Exception"
 	],
 	"database":  {
             "name": "Ma base de données",
