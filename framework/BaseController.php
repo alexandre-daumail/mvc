@@ -4,7 +4,7 @@
 		private $_httpRequest;
 		private $_param;
 		private $_config;
-		private $_FileManager;
+		public $_FileManager;
 		
 		public function __construct($httpRequest,$config)
 		{
