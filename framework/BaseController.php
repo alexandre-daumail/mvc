@@ -4,6 +4,7 @@
 		private $_httpRequest;
 		private $_param;
 		private $_config;
+		private $_FileManager;
 		
 		public function __construct($httpRequest,$config)
 		{
@@ -13,6 +14,7 @@
 			$this->addParam("httprequest",$this->_httpRequest);
 			$this->addParam("config",$this->_config);
 			$this->bindManager();
+			$this->FileManager = new FileManager();
 		}
 		
 		protected function view($filename)
@@ -33,7 +35,7 @@
 		
 		public function bindManager()
 		{
-			foreach($this->_httpRequest->getRoute()->manager as $manager)
+			foreach($this->_httpRequest->getRoute()->getManager() as $manager)
 			{
 				$this->$manager = new $manager($this->_config->database);
 			}
