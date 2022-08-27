@@ -25,5 +25,6 @@
         $httpRequest = new HttpRequest("/Error","GET");
         $router = new Router();
         $httpRequest->setRoute($router->findRoute($httpRequest));
+		$httpRequest->addParam(,$e);
         $httpRequest->run($config);
 	}
