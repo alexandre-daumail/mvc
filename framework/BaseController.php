@@ -19,19 +19,19 @@
 		
 		protected function view($filename)	
 		{
-			if(file_exists("View/" . $this->_httprequest->getRoute()->getController() . "/css/" . $filename . ".css"))
+			if(file_exists("View/" . $this->_httpRequest->getRoute()->getController() . "/css/" . $filename . ".css"))
 			{
-				$this->addCss("View/" . $this->_httprequest->getRoute()->getController() . "/css/" . $filename . ".css");
+				$this->addCss("View/" . $this->_httpRequest->getRoute()->getController() . "/css/" . $filename . ".css");
 			}
-			if(file_exists("View/" . $this->_httprequest->getRoute()->getController() . "/js/" . $filename . ".js"))
+			if(file_exists("View/" . $this->_httpRequest->getRoute()->getController() . "/js/" . $filename . ".js"))
 			{
-				$this->addJs("View/" . $this->_httprequest->getRoute()->getController() . "/js/" . $filename . ".js");
+				$this->addJs("View/" . $this->_httpRequest->getRoute()->getController() . "/js/" . $filename . ".js");
 			}
-			if(file_exists("View/" . $this->_httprequest->getRoute()->getController() . "/" . $filename . ".php"))
+			if(file_exists("View/" . $this->_httpRequest->getRoute()->getController() . "/" . $filename . ".php"))
 			{
 				ob_start();
 				extract($this->_param);
-				include("View/" . $this->_httprequest->getRoute()->getController() . "/" . $filename . ".php");
+				include("View/" . $this->_httpRequest->getRoute()->getController() . "/" . $filename . ".php");
 				$content = ob_get_clean();
 				include("View/layout.php");
 			}
