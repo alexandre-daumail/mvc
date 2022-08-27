@@ -8,7 +8,7 @@
         {
 			$this->_className = $className;
             $this->_property = $property;
-            parent::__construct($message,'0040');
+            parent::__construct($message,'0004');
         }
 
         public function getMoreDetail()
