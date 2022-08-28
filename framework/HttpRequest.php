@@ -71,7 +71,7 @@
 		public function run($config)
         {
 			$this->bindParam();
-            $this->_route->run($this,$config);
+            $this->_route->run($this,$config); // NB : $this parameter is the object HttpRequest instance itself
         }
 
         public function addParam($value)
