@@ -3,7 +3,7 @@
 	{
 		public function Login()
 		{
-			$this->View("login");
+			$this->view("login");
 		}
 		
 		public function Authenticate($login,$password)
